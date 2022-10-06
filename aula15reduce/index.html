@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Form Pesquisa Tabela</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-75">
+          <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar por nome de usuário"
+            name="pesquisa"
+            value=""
+            required
+          />
+        </div>
+        <div class="col-25">
+          <input type="button" id="btnPesquisar" value="Pesquisar" />
+          <input type="button" id="btnLimpar" value="Limpar" />
+        </div>
+      </div>
+
+      <div class="content">
+        <table class="rTable">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>Sexo</th>
+              <th>Idade</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+
+          <tbody id="resultado"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
