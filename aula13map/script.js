@@ -16,7 +16,12 @@ let newArr = dado.map(function (item) {
     }
 });
 
-elementoCalc.addEventListener("click",newArr);
+function limpar(){
+    texx.value="";
+}
+
+elementoCalc.addEventListener("click",seila);
+elementoLimp.addEventListener("click",limpar);
 console.log(newArr)
 texx.innerHTML=newArr;
 
