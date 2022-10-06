@@ -12,7 +12,7 @@ arr.push(dado);
 
 let newArr = dado.map(function (item) {
     return {
-        nome: item.numero*3
+        numero: item.numero*3
     }
 });
 
