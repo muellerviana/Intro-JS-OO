@@ -15,20 +15,20 @@ let shoppingCart= [
     {
         product: "Refrigerante-Toca Polar",
         measure: "Pet- 2 Litros",
-        qty: 1.896,
-        price: 40,
+        qty: 3,
+        price: 8.99,
     },
     {
-        product: "Alcatra-Fribov",
-        measure: "kg",
-        qty: 1.896,
-        price: 40,
+        product: "Arroz-Tio Chicão",
+        measure: "Pacote- 1kg",
+        qty: 4,
+        price: 5.99,
     },
     {
-        product: "Alcatra-Fribov",
+        product: "Peito de Frango - Hot Chicken",
         measure: "kg",
-        qty: 1.896,
-        price: 40,
+        qty: 5,
+        price: 16.99,
     }
     
   ];
@@ -37,19 +37,19 @@ let shoppingCart= [
   const btnPesquisar = document.getElementById("btnPesquisar");
   const btnLimpar = document.getElementById("btnLimpar");
   
-  function listarUsuariosNaTabela(filtrados = undefined) {
+  function listarTabelaProdutos(filtrados = undefined) {
+    console.log('Entrou na função');
     let trTds = "";
     let lista = [];
     let resultado = document.getElementById("resultado");
   
-    lista = filtrados === undefined ? listaUsuarios : filtrados;
+    lista = filtrados === undefined ? shoppingCart : filtrados;
   
-    lista.forEach((usuario) => {
-      trTds += `<tr><td>${usuario.id}</td>`;
-      trTds += `<td>${usuario.nome}</td>`;
-      trTds += `<td>${usuario.sexo}</td>`;
-      trTds += `<td>${usuario.idade}</td>`;
-      trTds += `<td>${usuario.email}</td></tr>`;
+    lista.forEach((produtos) => {
+      trTds += `<tr><td>${produtos.product}</td>`;
+      trTds += `<td>${produtos.measure}</td>`;
+      trTds += `<td>${produtos.qty}</td>`;
+      trTds += `<td>${produtos.price}</td>`;
     });
     resultado.innerHTML = trTds;
   
@@ -62,19 +62,21 @@ let shoppingCart= [
     let filtrados = [];
   
     if (pesquisa.value.toLowerCase() !== "") {
-      filtrados = listaUsuarios.filter(usuario => usuario.nome.toLowerCase().indexOf(pesquisa.value.toLowerCase()) > -1);
+      
+        filtrados =  shoppingCart.filter(produtos => produtos.product.toLowerCase().indexOf(pesquisa.value.toLowerCase()) > -1);
+        
     } 
     else {
-      filtrados = listaUsuarios;
+      filtrados =  shoppingCart;
     }
-    listarUsuariosNaTabela(filtrados);
+    listarTabelaProdutos(filtrados);
   }
   
   function limparDadosDaTelaForm() {
     pesquisa.value = "";
-    listarUsuariosNaTabela(listaUsuarios);
+    listarTabelaProdutos(listaUsuarios);
   }
   
-  addEventListener("load", () => listarUsuariosNaTabela());
+  addEventListener("load", () => listarTabelaProdutos());
   btnPesquisar.addEventListener("click", () => filtrarDadosPorNome());
   btnLimpar.addEventListener("click", () => limparDadosDaTelaForm());
